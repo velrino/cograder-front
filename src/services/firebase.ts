@@ -65,7 +65,7 @@ export async function fetchDevImages(
   }
 
   const dbPath = LockKeyName("IMAGES");
-  console.log({ dbPath });
+
   const devImagesRef = ref(database, dbPath);
 
   const pageSize = options.pageSize || 10;

@@ -1,5 +1,22 @@
 {
   "navbar": {
     "title": "Co-Grader"
+  },
+  "createJobDialog": {
+    "title": "New Image",
+    "urlLabel": "Image URL",
+    "urlPlaceholder": "https://example.com/image.jpg",
+    "loadingImage": "Loading image...",
+    "imagePreview": "Preview",
+    "submitButton": "Submit",
+    "cancelButton": "Cancel",
+    "submitting": "Submitting...",
+    "errors": {
+      "invalidUrl": "Invalid URL or image not found",
+      "failedToLoad": "Failed to load image",
+      "apiError": "Failed to create job",
+      "emptyUrl": "Please enter a URL"
+    },
+    "success": "Job created successfully!"
   }
 }
