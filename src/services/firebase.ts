@@ -6,6 +6,11 @@ import {
   onValue,
   Database,
   DataSnapshot,
+  query,
+  orderByChild,
+  limitToLast,
+  endBefore,
+  get,
 } from "firebase/database";
 
 const firebaseConfig = {
@@ -38,6 +43,79 @@ export interface DevImage {
   resultUrl: string;
   status: string;
   timestamp: number;
+}
+
+export interface PaginationOptions {
+  pageSize?: number;
+  lastTimestamp?: number;
+}
+
+export async function fetchDevImages(
+  options: PaginationOptions = {}
+): Promise<DevImage[]> {
+  if (typeof window === "undefined") {
+    return [];
+  }
+
+  initializeFirebase();
+
+  if (!database) {
+    console.error("Database not initialized");
+    return [];
+  }
+
+  const dbPath = LockKeyName("IMAGES");
+  console.log({ dbPath });
+  const devImagesRef = ref(database, dbPath);
+
+  const pageSize = options.pageSize || 10;
+
+  try {
+    let queryRef;
+
+    if (options.lastTimestamp) {
+      // Load more: get items older than lastTimestamp
+      queryRef = query(
+        devImagesRef,
+        orderByChild("timestamp"),
+        endBefore(options.lastTimestamp),
+        limitToLast(pageSize)
+      );
+    } else {
+      // Initial load: get latest items
+      queryRef = query(
+        devImagesRef,
+        orderByChild("timestamp"),
+        limitToLast(pageSize)
+      );
+    }
+
+    const snapshot = await get(queryRef);
+    const data = snapshot.val();
+
+    if (!data) {
+      return [];
+    }
+
+    const images: DevImage[] = Object.entries(data).map(
+      ([id, value]: [string, any]) => ({
+        id,
+        progress: value.progress || 0,
+        originalUrl: value.originalUrl || undefined,
+        resultUrl: value.resultUrl || "",
+        status: value.status || "unknown",
+        timestamp: value.timestamp || 0,
+      })
+    );
+
+    // Sort by timestamp descending (newest first)
+    images.sort((a, b) => b.timestamp - a.timestamp);
+
+    return images;
+  } catch (error) {
+    console.error("Firebase error:", error);
+    return [];
+  }
 }
 
 export function subscribeToDevImages(callback: (images: DevImage[]) => void) {
