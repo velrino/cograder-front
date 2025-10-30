@@ -5,8 +5,10 @@ import Navbar from '@/components/navbar';
 import ImageCard from '@/components/image-card';
 import CreateJobDialog from '@/components/create-job-dialog';
 import { subscribeToDevImages, DevImage } from '@/services/firebase';
+import { useI18n } from '@/contexts/i18n-context';
 
 export default function Home() {
+  const { t } = useI18n();
   const [images, setImages] = useState<DevImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -34,20 +36,20 @@ export default function Home() {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-black dark:text-white mb-2">
-            Processed Images
+            {t('home.title')}
           </h1>
           <p className="text-zinc-600 dark:text-zinc-400">
-            Real-time updates from Firebase
+            {t('home.subtitle')}
           </p>
         </div>
 
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="text-zinc-600 dark:text-zinc-400">Loading...</div>
+            <div className="text-zinc-600 dark:text-zinc-400">{t('home.loading')}</div>
           </div>
         ) : images.length === 0 ? (
           <div className="flex items-center justify-center py-12">
-            <div className="text-zinc-600 dark:text-zinc-400">No images found</div>
+            <div className="text-zinc-600 dark:text-zinc-400">{t('home.noImages')}</div>
           </div>
         ) : (
           <div className="flex flex-col gap-4">
@@ -62,7 +64,7 @@ export default function Home() {
       <button
         onClick={() => setIsDialogOpen(true)}
         className="fixed bottom-6 right-6 w-14 h-14 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center z-40"
-        aria-label="Add new image"
+        aria-label={t('home.addImageButton')}
       >
         <svg
           className="w-6 h-6"

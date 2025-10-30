@@ -2,6 +2,13 @@
   "navbar": {
     "title": "Co-Grader"
   },
+  "home": {
+    "title": "Processed Images",
+    "subtitle": "Real-time updates from Firebase",
+    "loading": "Loading...",
+    "noImages": "No images found",
+    "addImageButton": "Add new image"
+  },
   "createJobDialog": {
     "title": "New Image",
     "urlLabel": "Image URL",

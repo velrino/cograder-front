@@ -2,13 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { Theme } from '@/constants/theme';
-import { Locale, LOCALE_NAMES } from '@/constants/locale';
+import { Locale } from '@/constants/locale';
 import { useI18n } from '@/contexts/i18n-context';
 
 export default function Navbar() {
   const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
   const { locale, setLocale, t } = useI18n();
-  const [showLocaleMenu, setShowLocaleMenu] = useState(false);
 
   useEffect(() => {
     // Verifica o tema salvo ou preferência do sistema
@@ -29,6 +28,11 @@ export default function Navbar() {
     document.documentElement.classList.add(newTheme);
   };
 
+  const toggleLocale = () => {
+    const newLocale = locale === Locale.PT_BR ? Locale.EN_US : Locale.PT_BR;
+    setLocale(newLocale);
+  };
+
   return (
     <nav className="fixed top-0 w-full bg-white dark:bg-black border-b border-zinc-200 dark:border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,38 +44,13 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="relative">
-              <button
-                onClick={() => setShowLocaleMenu(!showLocaleMenu)}
-                className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-sm font-medium text-zinc-800 dark:text-zinc-200"
-                aria-label="Change language"
-              >
-                {locale === Locale.PT_BR ? 'PT' : 'EN'}
-              </button>
-
-              {showLocaleMenu && (
-                <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-lg z-50">
-                  <button
-                    onClick={() => {
-                      setLocale(Locale.PT_BR);
-                      setShowLocaleMenu(false);
-                    }}
-                    className="w-full px-4 py-2 text-left text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-t-lg"
-                  >
-                    {LOCALE_NAMES[Locale.PT_BR]}
-                  </button>
-                  <button
-                    onClick={() => {
-                      setLocale(Locale.EN_US);
-                      setShowLocaleMenu(false);
-                    }}
-                    className="w-full px-4 py-2 text-left text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-b-lg"
-                  >
-                    {LOCALE_NAMES[Locale.EN_US]}
-                  </button>
-                </div>
-              )}
-            </div>
+            <button
+              onClick={toggleLocale}
+              className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors text-2xl"
+              aria-label="Change language"
+            >
+              {locale === Locale.PT_BR ? '🇧🇷' : '🇺🇸'}
+            </button>
 
             <button
             onClick={toggleTheme}
