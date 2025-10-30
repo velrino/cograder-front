@@ -1,5 +1,7 @@
 # Co-Grader Frontend
 
+![Co-Grader App Screenshot](./doc/image.png)
+
 A modern image processing application built with Next.js that allows users to upload images, process them, and view results in real-time.
 
 ## 🚀 Features
@@ -28,12 +30,14 @@ A modern image processing application built with Next.js that allows users to up
 ## 🔧 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd cograder-front
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -43,6 +47,7 @@ pnpm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -57,7 +62,7 @@ pnpm dev
 
 The application connects to the Co-Grader API hosted on Google Cloud Run:
 
-**API Base URL**: `https://cograder-api-2057331207.southamerica-east1.run.app/`
+**API Base URL**: `https://cograder-2057331207.us-central1.run.app/`
 
 ## 📱 How to Use
 
@@ -71,6 +76,7 @@ The application connects to the Co-Grader API hosted on Google Cloud Run:
 ## 🌍 Internationalization
 
 Toggle between languages using the flag icon in the top navigation:
+
 - 🇧🇷 Portuguese (Brazil)
 - 🇺🇸 English
 
