@@ -35,8 +35,8 @@ export default function ImageCard({ image }: ImageCardProps) {
     <div className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex flex-col gap-4">
         {/* Header */}
-        <div className="flex items-start justify-between">
-          <div className="flex-1">
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex-1 min-w-0">
             <h3 className="text-sm font-mono text-zinc-600 dark:text-zinc-400 truncate">
               {image.id}
             </h3>
@@ -44,7 +44,7 @@ export default function ImageCard({ image }: ImageCardProps) {
               {formatDate(image.timestamp)}
             </p>
           </div>
-          <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${getStatusColor(image.status)}`}>
+          <span className={`px-3 py-1 rounded-full text-xs font-medium text-white whitespace-nowrap ${getStatusColor(image.status)}`}>
             {image.status}
           </span>
         </div>
@@ -80,7 +80,7 @@ export default function ImageCard({ image }: ImageCardProps) {
                   href={image.originalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full h-96 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center overflow-hidden"
+                  className="w-full h-64 sm:h-80 md:h-96 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center overflow-hidden"
                 >
                   <img
                     src={image.originalUrl}
@@ -102,7 +102,7 @@ export default function ImageCard({ image }: ImageCardProps) {
                   href={image.resultUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full h-96 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center overflow-hidden"
+                  className="w-full h-64 sm:h-80 md:h-96 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center overflow-hidden"
                 >
                   <img
                     src={image.resultUrl}
