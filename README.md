@@ -1,6 +1,6 @@
 # Co-Grader Frontend
 
-![Co-Grader App Screenshot](./doc/image.png)
+<img width="2992" height="1934" alt="image" src="https://github.com/user-attachments/assets/7fbff4f0-a4f8-4712-b1ed-579a0a4c4e2c" />
 
 A modern image processing application built with Next.js that allows users to upload images, process them, and view results in real-time.
 
