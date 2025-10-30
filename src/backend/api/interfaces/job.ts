@@ -12,6 +12,7 @@ export interface IApiJob {
   imageUrl: string;
   status: IApiJobStatus;
   progress: number;
+  originalUrl?: string;
   resultUrl?: string;
   error?: string;
   createdAt: string;

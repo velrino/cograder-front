@@ -27,6 +27,7 @@ function initializeFirebase() {
 export interface DevImage {
   id: string;
   progress: number;
+  originalUrl?: string;
   resultUrl: string;
   status: string;
   timestamp: number;
@@ -60,6 +61,7 @@ export function subscribeToDevImages(callback: (images: DevImage[]) => void) {
       const images: DevImage[] = Object.entries(data).map(([id, value]: [string, any]) => ({
         id,
         progress: value.progress || 0,
+        originalUrl: value.originalUrl || undefined,
         resultUrl: value.resultUrl || '',
         status: value.status || 'unknown',
         timestamp: value.timestamp || 0,

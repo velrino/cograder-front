@@ -67,22 +67,52 @@ export default function ImageCard({ image }: ImageCardProps) {
           </div>
         </div>
 
-        {/* Result Image */}
-        {image.resultUrl && image.status === IApiJobStatus.COMPLETED && (
-          <div className="w-full">
-            <a
-              href={image.resultUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full"
-            >
-              <img
-                src={image.resultUrl}
-                alt={`Processed image ${image.id}`}
-                className="w-full h-auto rounded-lg border border-zinc-200 dark:border-zinc-700 hover:opacity-90 transition-opacity"
-                loading="lazy"
-              />
-            </a>
+        {/* Images Side by Side */}
+        {(image.originalUrl || image.resultUrl) && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Original Image */}
+            {image.originalUrl && (
+              <div className="flex flex-col gap-2">
+                <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
+                  Original
+                </span>
+                <a
+                  href={image.originalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <img
+                    src={image.originalUrl}
+                    alt={`Original image ${image.id}`}
+                    className="w-full h-auto rounded-lg border border-zinc-200 dark:border-zinc-700 hover:opacity-90 transition-opacity"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            )}
+
+            {/* Result Image */}
+            {image.resultUrl && (
+              <div className="flex flex-col gap-2">
+                <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
+                  Result
+                </span>
+                <a
+                  href={image.resultUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full"
+                >
+                  <img
+                    src={image.resultUrl}
+                    alt={`Processed image ${image.id}`}
+                    className="w-full h-auto rounded-lg border border-zinc-200 dark:border-zinc-700 hover:opacity-90 transition-opacity"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+            )}
           </div>
         )}
       </div>
