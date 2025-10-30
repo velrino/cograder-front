@@ -1,4 +1,3 @@
-import { LockKeyName } from "@/lib/enviroment";
 import { initializeApp, getApps, FirebaseApp } from "firebase/app";
 import {
   getDatabase,
@@ -64,9 +63,7 @@ export async function fetchDevImages(
     return [];
   }
 
-  const dbPath = LockKeyName("IMAGES");
-
-  const devImagesRef = ref(database, dbPath);
+  const devImagesRef = ref(database, "IMAGES");
 
   const pageSize = options.pageSize || 10;
 
@@ -131,9 +128,7 @@ export function subscribeToDevImages(callback: (images: DevImage[]) => void) {
     return () => {};
   }
 
-  const dbPath = LockKeyName("IMAGES");
-
-  const devImagesRef = ref(database, dbPath);
+  const devImagesRef = ref(database, "IMAGES");
 
   const unsubscribe = onValue(
     devImagesRef,

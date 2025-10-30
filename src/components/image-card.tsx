@@ -80,12 +80,12 @@ export default function ImageCard({ image }: ImageCardProps) {
                   href={image.originalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full"
+                  className="w-full h-96 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center overflow-hidden"
                 >
                   <img
                     src={image.originalUrl}
                     alt={`Original image ${image.id}`}
-                    className="w-full h-auto rounded-lg border border-zinc-200 dark:border-zinc-700 hover:opacity-90 transition-opacity"
+                    className="max-w-full max-h-full object-contain hover:opacity-90 transition-opacity"
                     loading="lazy"
                   />
                 </a>
@@ -102,12 +102,12 @@ export default function ImageCard({ image }: ImageCardProps) {
                   href={image.resultUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full"
+                  className="w-full h-96 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 flex items-center justify-center overflow-hidden"
                 >
                   <img
                     src={image.resultUrl}
                     alt={`Processed image ${image.id}`}
-                    className="w-full h-auto rounded-lg border border-zinc-200 dark:border-zinc-700 hover:opacity-90 transition-opacity"
+                    className="max-w-full max-h-full object-contain hover:opacity-90 transition-opacity"
                     loading="lazy"
                   />
                 </a>
