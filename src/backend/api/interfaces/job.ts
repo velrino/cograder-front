@@ -43,3 +43,18 @@ export interface IApiJobCreateRequest {
 export interface IApiJobGetRequest {
   id: string;
 }
+
+export interface IApiUploadedFile {
+  name: string;
+  url: string;
+  size: number;
+  mimeType: string;
+  createdAt: string;
+  storagePath: string;
+}
+
+export interface IApiUploadResponse {
+  files: IApiUploadedFile[];
+  failed?: string[];
+  batchId: string;
+}

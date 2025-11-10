@@ -25,5 +25,21 @@
       "emptyUrl": "Por favor, insira uma URL"
     },
     "success": "Job criado com sucesso!"
+  },
+  "uploadDialog": {
+    "title": "Enviar Imagens",
+    "dropZoneTitle": "Clique para enviar ou arraste e solte",
+    "dropZoneSubtitle": "PNG, JPG, GIF, WEBP até 10MB (máx. 10 arquivos)",
+    "filesCount": "Arquivos",
+    "uploadedSuccessfully": "Enviado com sucesso",
+    "done": "Concluído",
+    "cancel": "Cancelar",
+    "uploadFiles": "Enviar Arquivos",
+    "uploading": "Enviando...",
+    "errorSummary": "Alguns arquivos falharam ao enviar. Clique em \"Enviar Arquivos\" para tentar novamente.",
+    "successSummary": "Todos os arquivos foram enviados com sucesso! Clique em \"Concluído\" para continuar.",
+    "successToast": "{{count}} imagem(ns) enviada(s) com sucesso!",
+    "maxFilesReached": "Limite de 10 arquivos atingido",
+    "maxFilesWarning": "Apenas {{count}} arquivo(s) foi(foram) adicionado(s) devido ao limite"
   }
 }

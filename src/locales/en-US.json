@@ -25,5 +25,21 @@
       "emptyUrl": "Please enter a URL"
     },
     "success": "Job created successfully!"
+  },
+  "uploadDialog": {
+    "title": "Upload Images",
+    "dropZoneTitle": "Click to upload or drag and drop",
+    "dropZoneSubtitle": "PNG, JPG, GIF, WEBP up to 10MB (max 10 files)",
+    "filesCount": "Files",
+    "uploadedSuccessfully": "Uploaded successfully",
+    "done": "Done",
+    "cancel": "Cancel",
+    "uploadFiles": "Upload Files",
+    "uploading": "Uploading...",
+    "errorSummary": "Some files failed to upload. Click \"Upload Files\" to retry all failed files.",
+    "successSummary": "All files uploaded successfully! Click \"Done\" to continue.",
+    "successToast": "{{count}} image(s) uploaded successfully!",
+    "maxFilesReached": "Maximum of 10 files reached",
+    "maxFilesWarning": "Only {{count}} file(s) added due to limit"
   }
 }

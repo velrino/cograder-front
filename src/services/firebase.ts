@@ -42,6 +42,7 @@ export interface DevImage {
   resultUrl: string;
   status: string;
   timestamp: number;
+  batchId?: string;
 }
 
 export interface PaginationOptions {
@@ -102,6 +103,7 @@ export async function fetchDevImages(
         resultUrl: value.resultUrl || "",
         status: value.status || "unknown",
         timestamp: value.timestamp || 0,
+        batchId: value.batchId || undefined,
       })
     );
 
@@ -148,6 +150,7 @@ export function subscribeToDevImages(callback: (images: DevImage[]) => void) {
           resultUrl: value.resultUrl || "",
           status: value.status || "unknown",
           timestamp: value.timestamp || 0,
+          batchId: value.batchId || undefined,
         })
       );
 
